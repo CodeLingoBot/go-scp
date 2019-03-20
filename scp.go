@@ -12,13 +12,13 @@ import (
 	"time"
 )
 
-// Returns a new scp.Client with provided host and ssh.clientConfig
+// NewClient returns a new scp.Client with provided host and ssh.clientConfig
 // It has a default timeout of one minute.
 func NewClient(host string, config *ssh.ClientConfig) Client {
 	return NewClientWithTimeout(host, config, time.Minute)
 }
 
-// Returns a new scp.Client with provides host, ssh.ClientConfig and timeout
+// NewClientWithTimeout returns a new scp.Client with provides host, ssh.ClientConfig and timeout
 func NewClientWithTimeout(host string, config *ssh.ClientConfig, timeout time.Duration) Client {
 	return Client{
 		Host:         host,
